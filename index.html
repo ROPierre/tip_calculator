@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+    <title>Tip calculator app</title>
+
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <!-- Logo -->
+    <section class="logo">
+        <img 
+            class="logo__img" 
+            src="./assets/images/logo.svg" 
+            alt="Splitter Logo"
+        >
+    </section>
+    <!-- Content -->
+    <main class="main">
+        <!-- Bill -->
+        <div class="main__form-group form-group mg-b-2">
+            <label for="bill" class="form-group__label">Bill</label>
+            <div class="form-group__input input form-group__input--error">
+                <img src="./assets/images/icon-dollar.svg" alt="Dollar">
+                <input 
+                    type="text" 
+                    name="bill" 
+                    id="bill" 
+                    class="input__field"
+                    value="100"
+                >
+            </div>
+        </div>
+        <!-- Tip Group Buttons -->
+        <div class="main__form-group form-group mg-b-2">
+            <p class="form-group__label">Select Tip %</p> 
+            <!-- Button Group -->
+            <div class="button-group">
+                <!-- 5% Button -->
+                <button class="button-group__button">5%</button>
+                <!-- 10% Button -->
+                <button class="button-group__button">10%</button>
+                <!-- 15% Button -->
+                <button class="button-group__button active">15%</button>
+                <!-- 25% Button -->
+                <button class="button-group__button">25%</button>
+                <!-- 50% Button -->
+                <button class="button-group__button">50%</button>
+                <!-- Custom Tip Button -->
+                <input 
+                    type="text" 
+                    name="customTip" 
+                    id="customTip" 
+                    class="button-group__input"
+                    placeholder="Custom"
+                >
+            </div>
+        </div>
+        <!-- Number of People -->
+        <div class="main__form-group form-group mg-b-2">
+            <label for="numberOfPeople" class="form-group__label">Number of People</label>
+            <div class="form-group__input input">
+                <img src="./assets/images/icon-person.svg" alt="Person">
+                <input 
+                    type="text" 
+                    name="numberOfPeople" 
+                    id="numberOfPeople" 
+                    class="input__field" 
+                    value="1"
+                >
+            </div>
+        </div>
+        <!-- Tip Box -->
+        <div class="main__result-box result-box">
+            <!-- Tip Amount/person -->
+            <div class="result-box__container container">
+               <div class="container__title">
+                   <p class="title">Tip Amount</p>
+                   <p class="subtitle">/ person</p>
+               </div>
+                <p class="result-value">$<span class="tip-value">4.27</span></p>
+            </div>
+            <!-- Total/person -->
+            <div class="result-box__container container">
+                <div class="container__title">
+                    <p class="title">Total</p>
+                    <p class="subtitle">/ person</p>
+                </div>
+                 <p class="result-value">$<span class="tip-value">32.79</span></p>
+             </div>
+            <!-- Reset Button -->
+            <button class="result-box__reset">Reset</button>
+        </div>
+    </main>
+
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>

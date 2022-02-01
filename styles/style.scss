@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+// Colors
+$primary-color: hsl(172, 67%, 45%);
+$light-color: hsl(185, 41%, 84%);
+$dark-color: hsl(183, 100%, 15%);
+$input-color: hsl(189, 41%, 97%);
+$input-selected-color: hsl(185, 43%, 82%);
+// Fonts
+$font-space-mono: 'Space Mono', monospace;
+$title-font: 1em;
+$font-size: 1.5em;
+$font-color: hsl(186, 14%, 43%); // titles + placeholder
+$subtitle-color: hsl(184, 14%, 56%);
+
+// Flex mixins
+@mixin flex($jst, $alg){
+    display: flex;
+    justify-content: $jst;
+    align-items: $alg;
+}
+@mixin flex-center {
+    @include flex(center, center)
+}
+
+// Font mixin
+@mixin font-values{
+    font-family: $font-space-mono;
+    text-align: right;
+    font-size: $font-size;
+    font-weight: 700;
+}
+
+// Button group default style
+@mixin button-group(){
+    min-height: 48px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+// Bootstrap device grid size
+@mixin device-size($device){
+    @if $device == xs{
+        @media (max-width: 575px){ @content }
+    } @else if $device == sm{
+        @media (min-width: 576px){ @content }
+    } @else if $device == md{
+        @media (min-width: 768px) { @content }
+    } @else if $device == lg{
+        @media (min-width: 992px) { @content }
+    } @else if $device == xl{
+        @media (min-width: 1200) { @content }
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background-color: $light-color;
+    font-size: 16px;
+    font-family: $font-space-mono;
+}
+
+.logo{
+    width: 100%;
+
+    @include device-size(xs){
+        margin: 50px 0 50px; 
+    }
+    @include flex-center();
+}
+
+.main{
+    min-height: calc(100vh - 100px);
+    padding: 2em;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 25px 25px 0px 0px; 
+    box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+
+    &__form-group{
+        @include device-size(xs){           
+            margin-bottom: 2rem;
+        }
+    }
+
+    .form-group{
+        &__label{
+            display: block;
+            font-size: $title-font;
+            color: $font-color;
+            font-weight: 700;
+
+            @include device-size(xs){
+                margin-bottom: 0.7em;
+            }
+        }
+
+        &__input{
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background-color: $input-color;
+            padding: 0px 1rem;
+            @include flex(space-between, center);
+            
+            &:focus-within{
+                border: 2px solid $input-selected-color;
+            }
+        }
+
+        .input{
+            &__field{
+                width: 100%;
+                margin: 0.25rem 0;
+                border: none;
+                background-color: transparent;
+                @include font-values();
+                color: $dark-color;
+                
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+
+        .input--error{
+            border: 2px solid hsl(0, 100%, 50%);
+        }
+
+        .button-group{
+            @include flex(space-between, center);
+            flex-wrap: wrap;
+
+            &__button{
+                @include flex-center();
+                @include  button-group();
+                min-width: 147.81px;
+                background: $dark-color;
+                @include font-values();
+                color: #fff;
+            }
+
+            &__button.active{
+                background-color: $primary-color;
+                color: $dark-color
+            }
+
+            &__input{
+                padding: 0 1rem;
+                @include  button-group();
+                max-width: calc(147.81px - 2rem);
+                @include font-values();
+                background: $input-color;
+                outline: none;
+            }
+
+            &__input:focus{
+                outline: 2px solid $primary-color;
+            }
+        }
+    }
+
+    &__result-box{
+        min-height: 100px;
+        background-color: $dark-color;
+        border-radius: 15px;
+        padding: 2rem 1.5rem;
+    }
+
+    .result-box{
+        &__container{
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+        }
+
+        .container{
+            .title{
+                font-size: $title-font;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            .subtitle{
+                font-size: .8rem;
+                color: $subtitle-color;
+            }
+
+            .result-value{
+                @include font-values();
+                vertical-align: middle;
+                font-size: 1.75rem;
+                color: $primary-color;
+            }
+
+            &:first-child{
+                margin-bottom: 1.25rem;
+            }
+        }
+
+        &__reset{
+            width: 100%;
+            margin-top: 2rem;
+            padding: .5rem;
+            background-color: $primary-color;
+            border: none;
+            border-radius: 5px;
+            color: $dark-color;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            line-height: 30px;
+
+        }
+    }
+}
