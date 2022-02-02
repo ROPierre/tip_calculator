@@ -28,14 +28,16 @@
         <!-- Bill -->
         <div class="main__form-group form-group mg-b-2">
             <label for="bill" class="form-group__label">Bill</label>
+            <span class="error_message">Can't be zero! </span>
             <div class="form-group__input input form-group__input--error">
                 <img src="./assets/images/icon-dollar.svg" alt="Dollar">
                 <input 
-                    type="text" 
+                    type="number" 
                     name="bill" 
                     id="bill" 
                     class="input__field"
-                    value="100"
+                    value="0"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                 >
             </div>
         </div>
@@ -43,38 +45,41 @@
         <div class="main__form-group form-group mg-b-2">
             <p class="form-group__label">Select Tip %</p> 
             <!-- Button Group -->
-            <div class="button-group">
+            <div class="form-group__button-group button-group">
                 <!-- 5% Button -->
-                <button class="button-group__button">5%</button>
+                <button class="button-group__button" id="tip5" value="5">5%</button>
                 <!-- 10% Button -->
-                <button class="button-group__button">10%</button>
+                <button class="button-group__button" id="tip10" value="10">10%</button>
                 <!-- 15% Button -->
-                <button class="button-group__button active">15%</button>
+                <button class="button-group__button active" id="tip15" value="15">15%</button>
                 <!-- 25% Button -->
-                <button class="button-group__button">25%</button>
+                <button class="button-group__button" id="tip25" value="25">25%</button>
                 <!-- 50% Button -->
-                <button class="button-group__button">50%</button>
+                <button class="button-group__button" id="tip50" value="50">50%</button>
                 <!-- Custom Tip Button -->
                 <input 
-                    type="text" 
+                    type="number" 
                     name="customTip" 
                     id="customTip" 
                     class="button-group__input"
                     placeholder="Custom"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                 >
             </div>
         </div>
         <!-- Number of People -->
         <div class="main__form-group form-group mg-b-2">
             <label for="numberOfPeople" class="form-group__label">Number of People</label>
+            <span class="error_message">Can't be zero! </span>
             <div class="form-group__input input">
                 <img src="./assets/images/icon-person.svg" alt="Person">
                 <input 
-                    type="text" 
+                    type="number" 
                     name="numberOfPeople" 
                     id="numberOfPeople" 
                     class="input__field" 
                     value="1"
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                 >
             </div>
         </div>
@@ -86,7 +91,7 @@
                    <p class="title">Tip Amount</p>
                    <p class="subtitle">/ person</p>
                </div>
-                <p class="result-value">$<span class="tip-value">4.27</span></p>
+                <p class="result-value">$<span class="tip-value">0.00</span></p>
             </div>
             <!-- Total/person -->
             <div class="result-box__container container">
@@ -94,10 +99,10 @@
                     <p class="title">Total</p>
                     <p class="subtitle">/ person</p>
                 </div>
-                 <p class="result-value">$<span class="tip-value">32.79</span></p>
+                 <p class="result-value">$<span class="total-value">0.00</span></p>
              </div>
             <!-- Reset Button -->
-            <button class="result-box__reset">Reset</button>
+            <button class="result-box__reset" onclick="reset()">Reset</button>
         </div>
     </main>
 

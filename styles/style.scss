@@ -90,7 +90,7 @@ body{
 
     .form-group{
         &__label{
-            display: block;
+            display: inline-block;
             font-size: $title-font;
             color: $font-color;
             font-weight: 700;
@@ -142,6 +142,7 @@ body{
                 background: $dark-color;
                 @include font-values();
                 color: #fff;
+                cursor:pointer;
             }
 
             &__button.active{
@@ -215,7 +216,25 @@ body{
             text-align: center;
             text-transform: uppercase;
             line-height: 30px;
-
+            cursor: pointer;
         }
     }
+}
+
+.error_message{
+    padding-top: .25rem;
+    font-size: .8rem;
+    color: hsl(0, 100%, 50%);
+    font-weight: 700;
+    float: right;
+    display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+input[type=number] {
+    -moz-appearance:textfield;
 }

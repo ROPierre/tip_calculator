@@ -36,7 +36,7 @@ body {
   }
 }
 .main .form-group__label {
-  display: block;
+  display: inline-block;
   font-size: 1em;
   color: #5e7a7d;
   font-weight: 700;
@@ -96,6 +96,7 @@ body {
   font-size: 1.5em;
   font-weight: 700;
   color: #fff;
+  cursor: pointer;
 }
 .main .form-group .button-group__button.active {
   background-color: #26c0ab;
@@ -163,4 +164,24 @@ body {
   text-align: center;
   text-transform: uppercase;
   line-height: 30px;
+  cursor: pointer;
+}
+
+.error_message {
+  padding-top: 0.25rem;
+  font-size: 0.8rem;
+  color: red;
+  font-weight: 700;
+  float: right;
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }/*# sourceMappingURL=style.css.map */
